@@ -1,25 +1,20 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import CpuUsage from './Components/CpuUsage';
+import RamUsage from './Components/RamUsage';
+import CpuUsageLineChart from './Components/CpuUsageLineChart';
+import RamUsageLineChart from './Components/RamUsageLineChart';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app-container">
+        <div className="main-head">
+          <h2>Your Server Stats</h2>
+        </div>
+        <RamUsage/>
+        <CpuUsage/>
+        <CpuUsageLineChart/>
+        <RamUsageLineChart/>
       </div>
     );
   }
