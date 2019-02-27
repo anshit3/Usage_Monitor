@@ -1,0 +1,16 @@
+.main-head {
+    text-align: center;
+    background-color: aliceblue;
+    line-height: 40px;
+    padding: 10px 0px;
+}
+
+.gauge-wrapper.row {
+    text-align: -webkit-right;
+    display: flex;
+    margin-top: 30px;
+}
+
+.ram-monitor, .cpu-monitor {
+    width: 500px;
+}

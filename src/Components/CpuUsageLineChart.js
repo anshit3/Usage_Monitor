@@ -2,14 +2,14 @@ import React from "react";
 import Chart from "react-google-charts";
 
 const data = [
-  ["Year", "Sales", "Expenses"],
-  ["2004", 1000, 400],
-  ["2005", 1170, 460],
-  ["2006", 660, 1120],
-  ["2007", 1030, 540]
+  ["Time", "Usage"],
+  ["2004", 1000],
+  ["2005", 1170],
+  ["2006", 660],
+  ["2007", 1030]
 ];
 const options = {
-  title: "Company Performance",
+  title: "CPU",
   curveType: "function",
   legend: { position: "bottom" }
 };

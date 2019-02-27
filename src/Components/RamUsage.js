@@ -48,8 +48,8 @@ class ramUsage extends React.Component {
       <div className="ram-monitor">
         <Chart
           chartType="Gauge"
-          width="100%"
-          height="400px"
+          width="50%"
+          height="200px"
           data={this.getData()}
           options={options}
         />
