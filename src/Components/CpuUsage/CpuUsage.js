@@ -1,5 +1,6 @@
 import React from "react";
 import Chart from "react-google-charts";
+import Service from '../Service'
 
 const options = {
   width: 400,
@@ -11,15 +12,25 @@ const options = {
   minorTicks: 5
 };
 
-const getRandomNumber = () => {
-  return Math.random() * 100;
-};
-
 class cpuUsage extends React.Component {
   state = {
-    cpu: 55
+    cpu: 0
   };
   intervalID = null;
+
+  getUsage = async () => {
+
+    let headers = {
+        "content-type" : "application/json",
+        }
+
+    await Service.usage(headers).then( async (response) => {
+          this.setState({ cpu : response.data.cpuUsagePercentage });
+      }).catch(() => {
+          console.log("Could not fetch usage");
+      });
+  };
+
   getData = () => {
     return [
       ["Label", "Value"],
@@ -32,12 +43,7 @@ class cpuUsage extends React.Component {
   }
   componentDidMount() {
     this.intervalID = setInterval(() => {
-      this.setState(state => {
-        return {
-          ...state,
-          cpu: getRandomNumber(),
-        };
-      });
+          this.getUsage();
     }, 3000);
   }
   render() {

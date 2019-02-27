@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import CpuUsage from './Components/CpuUsage';
-import RamUsage from './Components/RamUsage';
-import CpuUsageLineChart from './Components/CpuUsageLineChart';
-import RamUsageLineChart from './Components/RamUsageLineChart';
+import CpuUsage from './Components/CpuUsage/CpuUsage';
+import RamUsage from './Components/RamUsage/RamUsage';
+import CpuUsageLineChart from './Components/CpuUsage/CpuUsageLineChart';
+import RamUsageLineChart from './Components/RamUsage/RamUsageLineChart';
 import { Container, Row, Col } from 'react-bootstrap';
 import './App.css';
 
