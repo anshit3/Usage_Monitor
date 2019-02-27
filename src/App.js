@@ -13,22 +13,22 @@ class App extends Component {
         <Container>
           <Row>
             <div className="main-head">
-            <h2>Your Server Stats</h2>
+              <h2>Your Server Stats</h2>
             </div>
           </Row>
           <Row className='gauge-wrapper'>
             <Col md={6}>
-            <CpuUsage/>
+              <CpuUsage/>
             </Col>
             <Col md={6}>
-            <RamUsage/>
+              <RamUsage/>
             </Col>
           </Row>
           <Row>
-          <CpuUsageLineChart/>
+            <CpuUsageLineChart/>
           </Row>
           <Row>
-          <RamUsageLineChart/>
+            <RamUsageLineChart/>
           </Row>
         </Container>
       </div>

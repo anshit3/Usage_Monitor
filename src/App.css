@@ -6,11 +6,8 @@
 }
 
 .gauge-wrapper.row {
-    text-align: -webkit-right;
     display: flex;
     margin-top: 30px;
-}
+    padding-left: 42%;
 
-.ram-monitor, .cpu-monitor {
-    width: 500px;
 }

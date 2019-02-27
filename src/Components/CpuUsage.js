@@ -23,9 +23,7 @@ class cpuUsage extends React.Component {
   getData = () => {
     return [
       ["Label", "Value"],
-      ["Memory", this.state.memory],
       ["CPU", this.state.cpu],
-      ["Network", this.state.networkSpeed]
     ];
   };
   componentWillUnmount() {
@@ -47,7 +45,7 @@ class cpuUsage extends React.Component {
       <div className="cpu-monitor">
         <Chart
           chartType="Gauge"
-          width="50%"
+          width="100%"
           height="200px"
           data={this.getData()}
           options={options}

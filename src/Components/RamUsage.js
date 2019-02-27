@@ -36,8 +36,6 @@ class ramUsage extends React.Component {
       this.setState(state => {
         return {
           ...state,
-          networkSpeed: getRandomNumber(),
-          cpu: getRandomNumber(),
           memory: getRandomNumber()
         };
       });
@@ -48,7 +46,7 @@ class ramUsage extends React.Component {
       <div className="ram-monitor">
         <Chart
           chartType="Gauge"
-          width="50%"
+          width="100%"
           height="200px"
           data={this.getData()}
           options={options}
