@@ -1,6 +1,5 @@
 import React from "react";
 import Chart from "react-google-charts";
-// Ref : https://developers.google.com/chart/interactive/docs/gallery/histogram
 
 const data = [
   ["Time", "Usage"],

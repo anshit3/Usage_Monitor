@@ -1,27 +1,73 @@
 import React from "react";
 import Chart from "react-google-charts";
+import Service from '../Service'
 
-const data = [
-  ["Time", "Usage"],
-  ["2004", 1000],
-  ["2005", 1170],
-  ["2006", 660],
-  ["2007", 1030]
-];
 const options = {
   title: "CPU",
   curveType: "function",
-  legend: { position: "bottom" }
+  legend: { position: "bottom" },
+  animation: {
+      startup: true,
+      easing: 'linear',
+      duration: 1500,
+    },
 };
+
+const initialData = [
+  ["Time", "Usage"],
+  ["0", 0],
+];
+
 class cpuUsageLineChart extends React.Component {
+
+   state={
+     data:[
+       ...initialData
+     ]
+   }
+
+  intervalID = null;
+
+  getUsage = async () => {
+
+    let headers = {
+        "content-type" : "application/json",
+        }
+
+    await Service.usage(headers).then( async (response) => {
+      let newData = [ ...this.state.data ];
+      this.setState({
+        data : [
+          ...newData,
+          [ response.data.Timestamp , response.data.cpuUsagePercentage ]
+        ]
+      });
+      console.log(this.state.data);
+      }).catch(() => {
+          console.log("Could not fetch usage");
+      });
+  };
+
+  componentWillUnmount() {
+    if (this.intervalID === null) return;
+    clearInterval(this.intervalID);
+  }
+
+  componentDidMount() {
+    this.intervalID = setInterval(() => {
+          this.getUsage();
+    }, 3000);
+  }
+
   render() {
+
     return (
       <div className="cpu-monitor-line">
         <Chart
           chartType="LineChart"
           width="100%"
           height="400px"
-          data={data}
+          data={this.state.data}
           options={options}
         />
       </div>

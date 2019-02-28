@@ -16,6 +16,7 @@ class cpuUsage extends React.Component {
   state = {
     cpu: 0
   };
+  
   intervalID = null;
 
   getUsage = async () => {
