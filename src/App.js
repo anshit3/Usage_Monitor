@@ -13,7 +13,7 @@ class App extends Component {
         <Container>
           <Row>
             <div className="main-head">
-              <h2>Your Server Stats</h2>
+              <h2>Your Server Usage Stats</h2>
             </div>
           </Row>
           <Row className='gauge-wrapper'>
