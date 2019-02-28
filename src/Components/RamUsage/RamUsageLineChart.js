@@ -3,7 +3,13 @@ import Chart from "react-google-charts";
 import Service from '../Service'
 
 const options = {
-  title: "RAM",
+  title: "RAM STATS",
+  hAxis: {
+      title: 'Time',
+    },
+  vAxis: {
+      title: 'Usage Percentage',
+    },
   curveType: "function",
   legend: { position: "bottom" },
   animation: {
@@ -42,7 +48,6 @@ class ramUsageLineChart extends React.Component {
           [ response.data.Timestamp , response.data.memUsagePercentage ]
         ]
       });
-      console.log(this.state.data);
       }).catch(() => {
           console.log("Could not fetch usage");
       });
@@ -65,7 +70,7 @@ class ramUsageLineChart extends React.Component {
         <Chart
           chartType="LineChart"
           width="100%"
-          height="400px"
+          height="300px"
           data={this.state.data}
           options={options}
         />
